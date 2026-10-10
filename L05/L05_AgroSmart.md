@@ -1,6 +1,5 @@
-# Laboratorio 05 – Diseño y Arquitectura: AgroSmart
+# Laboratorio 05: AgroSmart
 
-**Curso:** Ingeniería de Software II  
 **Grupo:** 5 
 **Integrantes:** 
 REAID YUSEF BARRETO IBRAHIM,
