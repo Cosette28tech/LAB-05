@@ -155,28 +155,6 @@ Cada tarjeta muestra nombre, responsabilidades y colaboradores. Las flechas van 
 
 ![Tarjetas CRC de AgroSmart](img/crc.drawio.png)
 
-### 1.4 Simulación (*role-playing*)
-
-**Escenario:** un sensor de humedad envía una lectura de 12 % en una parcela de espárrago cuyo umbral mínimo es 18 %.
-
-1. **Sensor** (humedad del suelo, parcela P-07) genera una **Lectura** con valor 12 % y la manda a su **Gateway**.
-2. **Gateway** reenvía la lectura a **MonitorLecturas**.
-3. **MonitorLecturas** almacena la **Lectura** y le pregunta al **Sensor** a qué parcela pertenece → P-07.
-4. **MonitorLecturas** le pregunta a la **Parcela** P-07 su cultivo → espárrago.
-5. **MonitorLecturas** le pide al **Cultivo** "espárrago" el umbral de *humedad del suelo* → **Umbral** (mín 18 %, máx …).
-6. **MonitorLecturas** le pide al **Umbral** que evalúe 12 %. El Umbral responde: *fuera de rango, crítica* (por debajo del mínimo).
-7. **MonitorLecturas** crea una **Alerta** con la parcela P-07, valor 12 %, umbral 18 % y nivel crítico.
-8. **Alerta** le pide al **Notificador** que avise.
-9. **Notificador** obtiene de la **Parcela** a su **Productor**, arma el mensaje (“Humedad del suelo en P-07: 12 %, mínimo 18 %”) y lo envía al teléfono del productor.
-10. **Notificador** registra que el envío fue exitoso y la **Alerta** cambia su estado a *enviada*.
-
-**Lo que salió de la simulación:**
-- Al inicio nadie tenía la responsabilidad de "comparar lectura vs. umbral"; ponerla en `Lectura` o en `Sensor` no tenía sentido porque ninguno conoce el cultivo. Por eso se creó **MonitorLecturas**.
-- `Alerta` estaba enviando el mensaje ella misma, lo que mezclaba datos con integración externa (WhatsApp). Se separó en **Notificador**.
-- `Umbral` originalmente solo "sabía" mín/máx; se le agregó la responsabilidad de *evaluar* el valor para que MonitorLecturas no tenga esa lógica.
-
----
-
 ### 1.5 Diagrama de paquetes
 
 ![Diagrama de paquetes UML](img/paquetes.drawio.png)
