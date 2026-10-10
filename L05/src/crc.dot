@@ -1,0 +1,106 @@
+digraph CRC {
+  graph [rankdir=LR, splines=true, nodesep=0.5, ranksep=0.9, fontname="Helvetica", bgcolor="white", pad=0.3];
+  node [shape=plain, fontname="Helvetica", fontsize=10];
+  edge [color="#555555", arrowsize=0.7];
+
+  Productor [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFF8E1">
+   <TR><TD COLSPAN="2" BGCOLOR="#FFE082"><B>Productor</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer sus datos y teléfono (WhatsApp)<BR ALIGN="LEFT"/>Conocer sus parcelas<BR ALIGN="LEFT"/>Registrar / editar / dar de baja parcelas<BR ALIGN="LEFT"/>Recibir alertas<BR ALIGN="LEFT"/>Programar y activar riegos<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>Alerta<BR ALIGN="LEFT"/>Riego<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Parcela [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E8F5E9">
+   <TR><TD COLSPAN="2" BGCOLOR="#A5D6A7"><B>Parcela</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su ubicación y área<BR ALIGN="LEFT"/>Conocer su cultivo y fecha de siembra<BR ALIGN="LEFT"/>Conocer a su productor<BR ALIGN="LEFT"/>Conocer sus sensores y válvulas<BR ALIGN="LEFT"/>Conocer su cuaderno de campo<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Cultivo<BR ALIGN="LEFT"/>Productor<BR ALIGN="LEFT"/>Sensor<BR ALIGN="LEFT"/>ValvulaRiego<BR ALIGN="LEFT"/>CuadernoCampo<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Cultivo [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E8F5E9">
+   <TR><TD COLSPAN="2" BGCOLOR="#A5D6A7"><B>Cultivo</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su nombre (uva, espárrago, palta)<BR ALIGN="LEFT"/>Conocer sus umbrales<BR ALIGN="LEFT"/>Dar el umbral de un tipo de medición<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Umbral<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Umbral [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E8F5E9">
+   <TR><TD COLSPAN="2" BGCOLOR="#A5D6A7"><B>Umbral</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer tipo de medición, mínimo y máximo<BR ALIGN="LEFT"/>Evaluar si un valor está fuera de rango<BR ALIGN="LEFT"/>Indicar si la desviación es crítica<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT"><BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Gateway [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E3F2FD">
+   <TR><TD COLSPAN="2" BGCOLOR="#90CAF9"><B>Gateway</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su identificador y ubicación<BR ALIGN="LEFT"/>Conocer los sensores conectados<BR ALIGN="LEFT"/>Recibir lecturas de campo y reenviarlas<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Sensor<BR ALIGN="LEFT"/>MonitorLecturas<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Sensor [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E3F2FD">
+   <TR><TD COLSPAN="2" BGCOLOR="#90CAF9"><B>Sensor</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su tipo (humedad, temp., HR, CE)<BR ALIGN="LEFT"/>Conocer su parcela y gateway<BR ALIGN="LEFT"/>Generar lecturas<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>Gateway<BR ALIGN="LEFT"/>Lectura<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Lectura [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E3F2FD">
+   <TR><TD COLSPAN="2" BGCOLOR="#90CAF9"><B>Lectura</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer valor, unidad y fecha/hora<BR ALIGN="LEFT"/>Conocer el sensor que la generó<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Sensor<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  MonitorLecturas [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E3F2FD">
+   <TR><TD COLSPAN="2" BGCOLOR="#90CAF9"><B>MonitorLecturas</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Recibir y almacenar lecturas<BR ALIGN="LEFT"/>Obtener el umbral aplicable a la lectura<BR ALIGN="LEFT"/>Solicitar la creación de una alerta<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Lectura<BR ALIGN="LEFT"/>Sensor<BR ALIGN="LEFT"/>Parcela<BR ALIGN="LEFT"/>Cultivo<BR ALIGN="LEFT"/>Umbral<BR ALIGN="LEFT"/>Alerta<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Alerta [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFEBEE">
+   <TR><TD COLSPAN="2" BGCOLOR="#EF9A9A"><B>Alerta</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer parcela, valor medido y umbral<BR ALIGN="LEFT"/>Conocer su nivel (crítica / advertencia)<BR ALIGN="LEFT"/>Conocer su estado (enviada, leída)<BR ALIGN="LEFT"/>Pedir que se notifique al productor<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>Notificador<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Notificador [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#FFEBEE">
+   <TR><TD COLSPAN="2" BGCOLOR="#EF9A9A"><B>Notificador</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Armar el mensaje de la alerta<BR ALIGN="LEFT"/>Enviar la notificación al productor<BR ALIGN="LEFT"/>Registrar si el envío fue exitoso<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Alerta<BR ALIGN="LEFT"/>Productor<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  ValvulaRiego [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E0F7FA">
+   <TR><TD COLSPAN="2" BGCOLOR="#80DEEA"><B>ValvulaRiego</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su parcela y estado (abierta/cerrada)<BR ALIGN="LEFT"/>Abrirse y cerrarse<BR ALIGN="LEFT"/>Conocer la última programación recibida<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>Riego<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Riego [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#E0F7FA">
+   <TR><TD COLSPAN="2" BGCOLOR="#80DEEA"><B>Riego</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer fecha, hora y duración<BR ALIGN="LEFT"/>Conocer si es programado o manual<BR ALIGN="LEFT"/>Ejecutarse sobre la válvula<BR ALIGN="LEFT"/>Cancelarse / suspenderse<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">ValvulaRiego<BR ALIGN="LEFT"/>Productor<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  CuadernoCampo [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#F3E5F5">
+   <TR><TD COLSPAN="2" BGCOLOR="#CE93D8"><B>CuadernoCampo</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer su parcela<BR ALIGN="LEFT"/>Agregar actividades agrícolas<BR ALIGN="LEFT"/>Listar actividades por fecha<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>ActividadAgricola<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  ActividadAgricola [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#F3E5F5">
+   <TR><TD COLSPAN="2" BGCOLOR="#CE93D8"><B>ActividadAgricola</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Conocer tipo (riego, fertilización,<BR ALIGN="LEFT"/>  fumigación, cosecha) y fecha<BR ALIGN="LEFT"/>Conocer insumos y cantidades<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">CuadernoCampo<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Administrador [label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4" BGCOLOR="#ECEFF1">
+   <TR><TD COLSPAN="2" BGCOLOR="#B0BEC5"><B>Administrador</B></TD></TR>
+   <TR><TD><I>Responsabilidades</I></TD><TD><I>Colaboradores</I></TD></TR>
+   <TR><TD ALIGN="LEFT">Gestionar usuarios (productores)<BR ALIGN="LEFT"/>Gestionar tipos de cultivo y umbrales<BR ALIGN="LEFT"/>Registrar sensores y gateways<BR ALIGN="LEFT"/></TD>
+       <TD ALIGN="LEFT">Productor<BR ALIGN="LEFT"/>Cultivo<BR ALIGN="LEFT"/>Umbral<BR ALIGN="LEFT"/>Sensor<BR ALIGN="LEFT"/>Gateway<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  Gateway -> Sensor; Gateway -> MonitorLecturas;
+  Sensor -> Lectura; Sensor -> Parcela;
+  MonitorLecturas -> Lectura; MonitorLecturas -> Cultivo; MonitorLecturas -> Umbral; MonitorLecturas -> Alerta;
+  Cultivo -> Umbral;
+  Parcela -> Cultivo; Parcela -> Productor; Parcela -> ValvulaRiego; Parcela -> CuadernoCampo;
+  Alerta -> Notificador; Alerta -> Parcela;
+  Notificador -> Productor;
+  Riego -> ValvulaRiego; Productor -> Riego;
+  CuadernoCampo -> ActividadAgricola;
+  Administrador -> Productor; Administrador -> Cultivo; Administrador -> Sensor; Administrador -> Gateway;
+}

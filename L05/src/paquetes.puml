@@ -1,0 +1,47 @@
+@startuml
+skinparam packageStyle folder
+skinparam shadowing false
+skinparam defaultFontName Helvetica
+
+package "administracion" {
+  class Administrador
+}
+package "usuarios" {
+  class Productor
+}
+package "parcelas" {
+  class Parcela
+  class Cultivo
+  class Umbral
+}
+package "monitoreo" {
+  class Gateway
+  class Sensor
+  class Lectura
+  class MonitorLecturas
+}
+package "alertas" {
+  class Alerta
+  class Notificador
+}
+package "riego" {
+  class ValvulaRiego
+  class Riego
+}
+package "cuaderno" {
+  class CuadernoCampo
+  class ActividadAgricola
+}
+
+administracion ..> usuarios : <<use>>
+administracion ..> parcelas : <<use>>
+administracion ..> monitoreo : <<use>>
+parcelas ..> usuarios : <<use>>
+monitoreo ..> parcelas : <<use>>
+monitoreo ..> alertas : <<use>>
+alertas ..> parcelas : <<use>>
+alertas ..> usuarios : <<use>>
+riego ..> parcelas : <<use>>
+riego ..> usuarios : <<use>>
+cuaderno ..> parcelas : <<use>>
+@enduml

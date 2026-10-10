@@ -1,0 +1,19 @@
+digraph P {
+  graph [rankdir=TB, fontname="Helvetica", bgcolor="white", pad=0.3, nodesep=0.6, ranksep=0.8];
+  node [shape=plain, fontname="Helvetica", fontsize=11];
+  edge [style=dashed, arrowhead=vee, fontname="Helvetica", fontsize=9, label="«use»", color="#444444"];
+  def [style=invis];
+  administracion [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#B0BEC5" ALIGN="LEFT"><B>administracion</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#ECEFF1" ALIGN="LEFT">Administrador</TD></TR></TABLE>>];
+  usuarios [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#FFE082" ALIGN="LEFT"><B>usuarios</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#FFF8E1" ALIGN="LEFT">Productor</TD></TR></TABLE>>];
+  parcelas [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#A5D6A7" ALIGN="LEFT"><B>parcelas</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#E8F5E9" ALIGN="LEFT">Parcela<BR ALIGN="LEFT"/>Cultivo<BR ALIGN="LEFT"/>Umbral<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  monitoreo [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#90CAF9" ALIGN="LEFT"><B>monitoreo</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#E3F2FD" ALIGN="LEFT">Gateway<BR ALIGN="LEFT"/>Sensor<BR ALIGN="LEFT"/>Lectura<BR ALIGN="LEFT"/>MonitorLecturas<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  alertas [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#EF9A9A" ALIGN="LEFT"><B>alertas</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#FFEBEE" ALIGN="LEFT">Alerta<BR ALIGN="LEFT"/>Notificador<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  riego [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#80DEEA" ALIGN="LEFT"><B>riego</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#E0F7FA" ALIGN="LEFT">ValvulaRiego<BR ALIGN="LEFT"/>Riego<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  cuaderno [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="5"><TR><TD BGCOLOR="#CE93D8" ALIGN="LEFT"><B>cuaderno</B></TD><TD BORDER="0"></TD></TR><TR><TD COLSPAN="2" BGCOLOR="#F3E5F5" ALIGN="LEFT">CuadernoCampo<BR ALIGN="LEFT"/>ActividadAgricola<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  administracion -> usuarios; administracion -> parcelas; administracion -> monitoreo;
+  parcelas -> usuarios;
+  monitoreo -> parcelas; monitoreo -> alertas;
+  alertas -> parcelas; alertas -> usuarios;
+  riego -> parcelas; riego -> usuarios;
+  cuaderno -> parcelas;
+}
