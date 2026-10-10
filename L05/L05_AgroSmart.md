@@ -1,12 +1,12 @@
 # Laboratorio 05 – Diseño y Arquitectura: AgroSmart
 
 **Curso:** Ingeniería de Software II  
-**Grupo:** _5_  
-**Integrantes:** _
+**Grupo:** 5 
+**Integrantes:** 
 REAID YUSEF BARRETO IBRAHIM,
 ALESSANDRA COSETTE MAÑUICO JAUREGUI,
 ALVARO DIEGO MERA INCIO,
-DAVID EDUARDO VILELA RIVERA_
+DAVID EDUARDO VILELA RIVERA
 
 ---
 
@@ -16,7 +16,7 @@ DAVID EDUARDO VILELA RIVERA_
 
 Se partió de los sustantivos del caso y se descartaron los que eran solo atributos (ubicación, área, fecha de siembra, insumos, cantidades) o sinónimos. Además, al hacer el *role-playing* apareció la necesidad de dos clases que no salen como sustantivo directo del caso: **MonitorLecturas** (alguien tiene que recibir la lectura y compararla con el umbral) y **Notificador** (alguien tiene que enviar el mensaje al productor).
 
-Clases finales (15): `Productor`, `Administrador`, `Parcela`, `Cultivo`, `Umbral`, `Gateway`, `Sensor`, `Lectura`, `MonitorLecturas`, `Alerta`, `Notificador`, `ValvulaRiego`, `Riego`, `CuadernoCampo`, `ActividadAgricola`.
+Clases: `Productor`, `Administrador`, `Parcela`, `Cultivo`, `Umbral`, `Gateway`, `Sensor`, `Lectura`, `MonitorLecturas`, `Alerta`, `Notificador`, `ValvulaRiego`, `Riego`, `CuadernoCampo`, `ActividadAgricola`.
 
 ### 1.2 Tarjetas CRC
 
