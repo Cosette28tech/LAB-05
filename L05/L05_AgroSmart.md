@@ -1,8 +1,12 @@
 # Laboratorio 05 – Diseño y Arquitectura: AgroSmart
 
 **Curso:** Ingeniería de Software II  
-**Equipo:** _(completar)_  
-**Integrantes:** _(completar)_
+**Grupo:** _5_  
+**Integrantes:** _
+REAID YUSEF BARRETO IBRAHIM
+ALESSANDRA COSETTE MAÑUICO JAUREGUI
+ALVARO DIEGO MERA INCIO
+DAVID EDUARDO VILELA RIVERA_
 
 ---
 
