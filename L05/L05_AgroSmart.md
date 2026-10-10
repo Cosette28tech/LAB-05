@@ -181,41 +181,6 @@ Cada tarjeta muestra nombre, responsabilidades y colaboradores. Las flechas van 
 
 ![Diagrama de paquetes UML](img/paquetes.drawio.png)
 
-> Fuente PlantUML: `src/paquetes.puml` (también se incluye `src/paquetes.dot`).
-
-```plantuml
-@startuml
-skinparam packageStyle folder
-package "administracion" { class Administrador }
-package "usuarios"       { class Productor }
-package "parcelas"       { class Parcela
-                           class Cultivo
-                           class Umbral }
-package "monitoreo"      { class Gateway
-                           class Sensor
-                           class Lectura
-                           class MonitorLecturas }
-package "alertas"        { class Alerta
-                           class Notificador }
-package "riego"          { class ValvulaRiego
-                           class Riego }
-package "cuaderno"       { class CuadernoCampo
-                           class ActividadAgricola }
-
-administracion ..> usuarios  : <<use>>
-administracion ..> parcelas  : <<use>>
-administracion ..> monitoreo : <<use>>
-parcelas  ..> usuarios  : <<use>>
-monitoreo ..> parcelas  : <<use>>
-monitoreo ..> alertas   : <<use>>
-alertas   ..> parcelas  : <<use>>
-alertas   ..> usuarios  : <<use>>
-riego     ..> parcelas  : <<use>>
-riego     ..> usuarios  : <<use>>
-cuaderno  ..> parcelas  : <<use>>
-@enduml
-```
-
 ### 1.6 Verificación de dependencias cíclicas
 
 El diagrama final **no tiene ciclos**: `usuarios` no depende de nadie, `parcelas` solo depende de `usuarios`, y el resto depende "hacia abajo". Pero en la primera versión sí aparecieron ciclos, porque las tarjetas CRC tienen colaboraciones en ambos sentidos:
