@@ -153,9 +153,7 @@ Clases finales (15): `Productor`, `Administrador`, `Parcela`, `Cultivo`, `Umbral
 
 Cada tarjeta muestra nombre, responsabilidades y colaboradores. Las flechas van de la clase que pide ayuda hacia su colaborador. Los colores agrupan las tarjetas que luego quedan en el mismo paquete.
 
-![Tarjetas CRC de AgroSmart](img/crc.png)
-
-> Fuente editable: `src/crc.dot` (Graphviz).
+![Tarjetas CRC de AgroSmart](img/Gráfico de tarjetas y colaboraciones.jpg)
 
 ### 1.4 Simulación (*role-playing*)
 
