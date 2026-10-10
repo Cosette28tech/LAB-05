@@ -9,7 +9,7 @@ DAVID EDUARDO VILELA RIVERA
 
 ---
 
-## Pregunta 1: Tarjetas CRC y Paquetes
+## P1: 
 
 ### 1.1 Clases candidatas
 
@@ -181,8 +181,7 @@ El diagrama final **no tiene ciclos**: `usuarios` no depende de nadie, `parcelas
 
 ---
 
-## Pregunta 2: Requisitos Arquitectónicamente Significativos y Atributos de Calidad
-
+## P2 
 ### 2.1 Requisitos arquitectónicamente significativos (ASR)
 
 | ID | ¿Por qué es arquitectónicamente significativo? | Posible decisión arquitectónica |
