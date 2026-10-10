@@ -153,7 +153,7 @@ Clases finales (15): `Productor`, `Administrador`, `Parcela`, `Cultivo`, `Umbral
 
 Cada tarjeta muestra nombre, responsabilidades y colaboradores. Las flechas van de la clase que pide ayuda hacia su colaborador. Los colores agrupan las tarjetas que luego quedan en el mismo paquete.
 
-![Tarjetas CRC de AgroSmart](img/Gráfico de tarjetas y colaboraciones.jpg)
+![Tarjetas CRC de AgroSmart](img/crc.drawio.png)
 
 ### 1.4 Simulación (*role-playing*)
 
@@ -179,7 +179,7 @@ Cada tarjeta muestra nombre, responsabilidades y colaboradores. Las flechas van 
 
 ### 1.5 Diagrama de paquetes
 
-![Diagrama de paquetes UML](img/paquetes.png)
+![Diagrama de paquetes UML](img/paquetes.drawio.png)
 
 > Fuente PlantUML: `src/paquetes.puml` (también se incluye `src/paquetes.dot`).
 
